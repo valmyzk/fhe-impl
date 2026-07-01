@@ -1,0 +1,27 @@
+[package]
+name = "tfhe-demo"
+version = "0.1.0"
+authors = ["Valentí Martín"]
+edition = "2024"
+description = "A minimal demo of homomorphic encryption for GCM using tfhe-rs and Trivium transciphering."
+license = "AGPL-3.0-only"
+
+[lib]
+path = "src/lib/mod.rs"
+
+[[bin]]
+name = "client"
+path = "src/client/bin.rs"
+
+[[bin]]
+name = "server"
+path = "src/server/bin.rs"
+
+[dependencies]
+tfhe = { version = "1.6.2", features = ["integer"] }
+rayon = "1.12.0"
+serde = { version = "1", features = ["derive"] }
+bincode = "1"
+ratatui = "0.29"
+crossterm = "0.28"
+rand = "0.8"

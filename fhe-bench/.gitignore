@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+
+# Model checkpoints (large binaries, reproducible by running training)
+src/models/nn/checkpoints/
+src/models/tree/checkpoints/
+
+# Generated plots
+plots/
+
+# Dataset (licensed — download separately, see README)
+dataset/shanghai_t2dm/*.xls
+dataset/shanghai_t2dm/*.xlsx
+
+# IDE
+.idea/
+.vscode/

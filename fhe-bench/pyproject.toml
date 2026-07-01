@@ -1,0 +1,53 @@
+[project]
+name = "ml-impl"
+version = "0.1.0"
+description = "CGM glucose prediction under Fully Homomorphic Encryption — comparing Concrete ML and HEIR backends"
+readme = "README.md"
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "concrete-ml>=1.9.0",
+    "concrete-python[full]>=2.10.0",
+    "numpy>=1.26.4",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.3",
+    "pandas-stubs~=3.0.3",
+    "xlrd>=2.0.2",
+    "torch>=2.12.0",
+    "triton-rocm; sys.platform == 'linux'",
+    "onnxscript>=0.7.0",
+    "torch-mlir",
+    "scikit-learn>=1.5.0",
+    "matplotlib>=3.11.0",
+    "scipy>=1.17.1",
+    "heir-py[python, openfhe]>=2026.6.25.dev0",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+triton-rocm = [
+  { index = "pytorch-rocm", marker = "sys_platform == 'linux'" },
+]
+torch-mlir = [
+    { index = "llvm-torch-mlir" }
+]
+
+[tool.uv]
+override-dependencies = ["torch>=2.3.1"]
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm7.2"
+explicit = true
+
+[[tool.uv.index]]
+name = "llvm-torch-mlir"
+url = "https://github.com/llvm/torch-mlir-release/releases/expanded_assets/dev-wheels"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.20",
+]
+

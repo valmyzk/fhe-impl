@@ -1,0 +1,5 @@
+mlpmodel/mlp.go
+go.sum
+lattigo_mlp
+lattigo_mlp.so
+lattigo_mlp.h
